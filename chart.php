@@ -3,6 +3,8 @@ $servername = "localhost";
 $username = "username"; // Your database username
 $password = "password"; // Your database password
 $dbname = "mead_monitoring";
+$tableName = "Lavender01";
+
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -13,7 +15,7 @@ if ($conn->connect_error) {
 }
 
 // SQL query to fetch data
-$sql = "SELECT timestamp, temperature, humidity, co2_level, alcohol_level FROM fermentation_data ORDER BY timestamp DESC LIMIT 50";
+$sql = "SELECT timestamp, temperature, humidity, co2_level, alcohol_level FROM `$tableName` ORDER BY timestamp DESC LIMIT 1440";
 $result = $conn->query($sql);
 
 // Arrays to store data
