@@ -27,7 +27,7 @@ $alcohol_level = $_POST['alcohol_level']; // assuming you're sending this data
 	}
 
 	if ($result->num_rows == 0) {
-	  $create_table = "CREATE TABLE fermentation_data (
+	  $create_table = "CREATE TABLE '$tableName' (
             id INT AUTO_INCREMENT PRIMARY KEY,
             timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
             temperature FLOAT,
@@ -45,7 +45,7 @@ $alcohol_level = $_POST['alcohol_level']; // assuming you're sending this data
 	}
 
 // Prepare and bind
-$stmt = $conn->prepare("INSERT INTO fermentation_data (temperature, humidity, co2_level, alcohol_level) VALUES (?, ?, ?, ?)");
+$stmt = $conn->prepare("INSERT INTO '$tableName' (temperature, humidity, co2_level, alcohol_level) VALUES (?, ?, ?, ?)");
 $stmt->bind_param("dddd", $temperature, $humidity, $co2_level, $alcohol_level);
 
 // Execute the statement
