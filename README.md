@@ -56,10 +56,52 @@ Code Structure
 -   `chart.php`: A PHP script that retrieves data from the MySQL database and displays it using Chart.js.
 -   `post-data.php`: The PHP endpoint on the Raspberry Pi that receives and logs data from the NodeMCU.
 
+Modification
+--------------
+
+-   'Modify chart.php and post-chart.php:'
+
+$servername = "localhost";
+
+$username = "username"; // Your database username
+
+$password = "password"; // Your database password
+
+$dbname = "mead_monitoring";
+
+$tableName = "Lavender01";
+
+-   Also modify your .ino file:
+
+//################################# CHANGE HERE:
+
+// Raspberry Pi server details
+
+const char* serverName = "http://192.168.1.88/Monitoring/XXX/post-data.php";
+
+IPAddress staticIP(192, 168, 1, 146); //<<<<<<<<<<<<<<
+
+IPAddress gateway(192, 168, 1, 1);    // Gateway 
+
+IPAddress subnet(255, 255, 255, 0);   // Subnet mask
+
+float TEMP_THRESHOLD = 18;
+
+float TEMP_HYSTERESIS = 0.5;
+
+//################################################
+
+// Replace with your network credentials
+
+const char* ssid = "XXX";
+
+const char* password = "XXX";
+
+
 Web Interface
 -------------
 
-Access the web interface by navigating to `http://[Raspberry_Pi_IP]/Monitoring/MEAD/chart.php` to view the real-time and historical data of your mead fermentation process.
+Access the web interface by navigating to `http://[Raspberry_Pi_IP]/Monitoring/XXX/chart.php` to view the real-time and historical data of your mead fermentation process.
 
 Acknowledgements
 ----------------
