@@ -6,8 +6,8 @@
 #include <MQ135.h>
 
 // Replace with your network credentials
-const char* ssid = "VPN1";
-const char* password = "09126141426";
+const char* ssid = "XXX";
+const char* password = "XXX";
 
 IPAddress staticIP(192, 168, 1, 145); // Example IP
 IPAddress gateway(192, 168, 1, 1);    // Gateway (usually your router IP)
